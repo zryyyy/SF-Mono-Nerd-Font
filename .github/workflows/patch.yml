@@ -16,7 +16,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@main
         with:
-          go-version-file: stable
+          go-version: 'stable'
 
       - name: Install 7-Zip
         run: |
