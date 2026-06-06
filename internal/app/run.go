@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 
@@ -47,7 +48,7 @@ func Run(configPath string, dryRun bool) error {
 		return fmt.Errorf("create output dir: %w", err)
 	}
 
-	var allPatched []string
+	var allPatched []ziputil.Entry
 	for _, group := range groups {
 		fmt.Printf("Preparing %s\n", group.Name)
 		inputDir, outputDir, err := source.PrepareGroup(cfg, group)
@@ -71,7 +72,12 @@ func Run(configPath string, dryRun bool) error {
 		if err := ziputil.CreateFlat(groupZip, files); err != nil {
 			return err
 		}
-		allPatched = append(allPatched, files...)
+		for _, file := range files {
+			allPatched = append(allPatched, ziputil.Entry{
+				Source: file,
+				Name:   path.Join(group.Name, filepath.Base(file)),
+			})
+		}
 		fmt.Printf("Wrote %s\n", groupZip)
 	}
 
@@ -79,7 +85,7 @@ func Run(configPath string, dryRun bool) error {
 		return errors.New("no patched fonts were produced")
 	}
 	allZip := filepath.Join(cfg.OutputDir, "all_fonts.zip")
-	if err := ziputil.CreateFlat(allZip, allPatched); err != nil {
+	if err := ziputil.Create(allZip, allPatched); err != nil {
 		return err
 	}
 	fmt.Printf("Wrote %s\n", allZip)
