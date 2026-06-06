@@ -1,0 +1,11 @@
+.cache/
+work/
+dist/
+
+.idea/
+.vscode/
+
+*.zip
+*.ttf
+*.otf
+*.dmg

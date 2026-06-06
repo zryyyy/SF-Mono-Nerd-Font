@@ -1,0 +1,93 @@
+{
+  "cacheDir": ".cache",
+  "workDir": "work",
+  "outputDir": "dist",
+  "patcher": {
+    "image": "nerdfonts/patcher",
+    "args": ["--complete"],
+    "parallel": 10
+  },
+  "fonts": [
+    {
+      "name": "LXGWWenKai",
+      "sources": [
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKai-Light.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKai-Medium.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKai-Regular.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKaiMono-Light.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKaiMono-Medium.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenKai/releases/latest/download/LXGWWenKaiMono-Regular.ttf"
+        }
+      ]
+    },
+    {
+      "name": "LXGWWenKaiGB",
+      "sources": [
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiGB-Light.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiGB-Medium.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiGB-Regular.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiMonoGB-Light.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiMonoGB-Medium.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwWenkaiGB/releases/latest/download/LXGWWenKaiMonoGB-Regular.ttf"
+        }
+      ]
+    },
+    {
+      "name": "LXGWNeoHei",
+      "sources": [
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwNeoXiHei/releases/latest/download/LXGWNeoXiHei.ttf"
+        },
+        {
+          "type": "font",
+          "url": "https://github.com/lxgw/LxgwNeoXiHei/releases/latest/download/LXGWNeoXiHeiPlus.ttf"
+        }
+      ]
+    },
+    {
+      "name": "SF-Mono",
+      "sources": [
+        {
+          "type": "dmg",
+          "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg"
+        }
+      ],
+      "include": ["SF-Mono-*.otf"]
+    }
+  ]
+}

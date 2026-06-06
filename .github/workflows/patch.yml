@@ -1,0 +1,42 @@
+name: Fonts Patcher
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Set up Go
+        uses: actions/setup-go@main
+        with:
+          go-version-file: stable
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y 7zip
+
+      - name: Set up release tag
+        run: echo "TAG_DATE=$(date +%Y%m%d)" >> "$GITHUB_ENV"
+
+      - name: Test
+        run: go test ./...
+
+      - name: Patch fonts
+        run: go run . -config font.json
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_DATE }}
+          name: Patched Fonts - ${{ env.TAG_DATE }}
+          files: dist/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
